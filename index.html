@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Атлас розподілів · Симулятор імовірностей</title>
+<link rel="canonical" href="https://eventmaker.github.io/probability-atlas/">
+<link rel="alternate" hreflang="uk" href="https://eventmaker.github.io/probability-atlas/">
+<link rel="alternate" hreflang="en" href="https://eventmaker.github.io/probability-atlas/en/">
+<meta name="description" content="Досліджуй розподіли ймовірностей за допомогою інтерактивних графіків, формул, прикладів і випадкових вибірок.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Атлас розподілів">
+<meta property="og:description" content="Досліджуй розподіли ймовірностей за допомогою інтерактивних графіків, формул, прикладів і випадкових вибірок.">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://eventmaker.github.io/probability-atlas/">
 <!-- > provenance: summary -->
 <style>:root{--paper:#f7f8f4;--white:#fff;--rail:#f0f3ee;--ink:#192e29;--muted:#50645e;--line:#dce3da;--moss:#155c49;--green:#1f775b;--pale:#e5f3e9;--amber:#a9521e;--sans:Inter,Roboto,"Segoe UI",Arial,sans-serif;--serif:"STIX Two Text",Georgia,"Times New Roman",serif;--mono:"IBM Plex Mono",Consolas,monospace;--radius:16px;color-scheme:light}
 *{box-sizing:border-box}
@@ -60,6 +69,12 @@ main{padding:32px clamp(22px,3.3vw,54px) 60px;min-width:0}.mobilePicker{display:
 @media(max-width:1000px){.appShell{display:block}.rail{display:none}.mastInner{padding:0 24px}.mobilePicker{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin-bottom:17px}.mobilePicker select{width:auto;min-width:190px;font-size:13px;max-width:100%}.workspace{grid-template-columns:minmax(0,1fr) 257px}.heading h1{font-size:40px}}
 @media(max-width:730px){.mastInner{min-height:58px;padding:0 15px;gap:8px}.brand{font-size:18px;gap:7px}.brandMark{width:28px;height:28px;padding:5px 4px}.topNav{gap:13px}.topNav a{font-size:12px}main{padding:19px 14px 40px}.heading{margin-bottom:16px}.heading h1{font-size:34px}.heading p{font-size:14px}.workspace,.learningGrid{grid-template-columns:minmax(0,1fr);gap:12px}.plotBox{height:235px}.controlCard{padding:16px}.paramsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:17px}.param+.param{margin:0}.eventControls{margin-top:14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}.stat{padding:11px 14px}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}.theoryCard,.experiment,.guideBasics{padding:17px}.basicsGrid{grid-template-columns:1fr;gap:13px}.guideRow{grid-template-columns:minmax(0,1fr) 14px;gap:3px 8px;padding:12px 14px}.guideRow strong,.guideRow span{grid-column:1}.guideRow em{grid-column:2;grid-row:1 / span 3}.guideTools h2{font-size:18px}.guideTools .seg button{padding:6px 7px}.graphHead{gap:8px}.plotLegend{gap:10px}.mobilePicker{flex-wrap:wrap}}
 @media(max-width:400px){.mastInner{padding-inline:10px}.topNav{gap:9px}.brand{font-size:16px}.heading h1{font-size:30px}.graphHead h2{font-size:16px}.graphHead{padding:14px 13px 0}.seg button{padding:5px 6px}.answer{padding:11px 14px}.eventMath{font-size:18px}.answerValue{font-size:24px}.stats .stat span{font-size:11px}}
+
+.mastInner{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:26px}
+.langSwitch{display:inline-flex;align-items:center;gap:2px;justify-self:end;padding:3px;border:1px solid #d5ded4;border-radius:9px;background:#f3f5f0;line-height:1.2;white-space:nowrap}
+.langSwitch a,.langSwitch [aria-current]{display:inline-flex;align-items:center;justify-content:center;padding:6px 8px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:550;color:#445d50}
+.langSwitch a:hover{color:#155c49;background:#e8f0e6}.langSwitch [aria-current]{background:#fff;color:#174d3c;box-shadow:0 1px 3px #1d3b2624}
+@media(max-width:660px){.mastInner{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand language" "nav nav";column-gap:8px;row-gap:0;padding-top:9px}.mastInner .brand{grid-area:brand}.langSwitch{grid-area:language}.topNav{grid-area:nav;min-height:33px;gap:20px}.langSwitch a,.langSwitch [aria-current]{padding:5px 6px;font-size:11.5px}.topNav a{padding-top:0}}
 </style>
 </head>
 <body>
@@ -68,6 +83,7 @@ main{padding:32px clamp(22px,3.3vw,54px) 60px;min-width:0}.mobilePicker{display:
   <div class="mastInner">
     <a class="brand" id="brand" href="#bin" aria-label="Атлас розподілів, до симулятора"><span class="brandMark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>Атлас розподілів</span></a>
     <nav class="topNav" aria-label="Розділи"><a id="navSim" href="#bin">Симулятор</a><a id="navGuide" href="#guide">Довідник</a></nav>
+    <nav id="langSwitcher" class="langSwitch" aria-label="Мова"><span lang="uk" aria-current="true">Українська</span><a id="otherLanguage" lang="en" hreflang="en" href="./en/">English</a></nav>
   </div>
 </header>
 <div class="appShell">
@@ -702,10 +718,11 @@ function route(){
   if(!state.key||(!guide&&key!==state.key))setModel(key);
   if(guide)renderGuide();else{drawGraph();requestAnimationFrame(drawGraph);}
   for(const a of document.querySelectorAll('.lawLink')){if(!guide&&a.dataset.model===state.key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');}
-  document.title=(guide?'Довідник':modelTitle(state.key))+' · Атлас розподілів';window.scrollTo(0,0);
+  document.title=(guide?'Довідник':modelTitle(state.key))+' · Атлас розподілів';syncLanguageLink();window.scrollTo(0,0);
 }
 function start(){
-  buildCatalog();
+  buildCatalog();restoreLanguageState();
+  by('otherLanguage').addEventListener('click',saveLanguageState);
   for(const id of ['boundA','boundB'])by(id).addEventListener('input',readEvent);
   by('eventType').addEventListener('change',readEvent);
   by('reset').addEventListener('click',()=>setModel(state.key,true));
@@ -725,6 +742,55 @@ function start(){
   new ResizeObserver(()=>{if(!state.guide&&state.law)drawGraph();}).observe(by('plotBox'));
   window.addEventListener('hashchange',route);route();
 }
+// Carry the current experiment across the two localized entry points.
+const languageStorageKey='probability-atlas.pending-locale.v1';
+function languageDestination(){
+  const english=document.documentElement.lang==='en';
+  const target=location.protocol==='file:'?(english?'../index.html':'./en/index.html'):(english?'../':'./en/');
+  const url=new URL(target,location.href);url.hash=location.hash;return url.href;
+}
+function syncLanguageLink(){
+  const link=by('otherLanguage');
+  link.href=languageDestination();
+}
+function saveLanguageState(){
+  const packet={version:1,to:by('otherLanguage').hreflang,hash:location.hash,time:Date.now(),key:state.key,
+    params:state.params,event:state.event,view:state.view,strict:state.strict,sample:state.sample,
+    size:by('sampleSize').value,filter:guideFilter};
+  try{sessionStorage.setItem(languageStorageKey,JSON.stringify(packet));}catch{}
+}
+function restoreLanguageState(){
+  let packet;
+  try{
+    const value=sessionStorage.getItem(languageStorageKey);if(!value)return;
+    packet=JSON.parse(value);
+    if(packet.to!==document.documentElement.lang)return;
+    sessionStorage.removeItem(languageStorageKey);
+  }catch{return;}
+  if(packet.version!==1 || !Object.hasOwn(models,packet.key) || packet.hash!==location.hash ||
+    !(Date.now()-packet.time>=0 && Date.now()-packet.time<120000))return;
+  const m=models[packet.key],params=defaults(packet.key);
+  if(!packet.params||typeof packet.params!=='object')return;
+  if(packet.key==='table'){
+    if(typeof packet.params.rows!=='string'||packet.params.rows.length>10000)return;
+    try{parseTable(packet.params.rows);}catch{return;}
+    params.rows=packet.params.rows;
+  }else{
+    for(const def of m.pars){const x=packet.params[def.key];if(!Number.isFinite(x)||x<def.min||x>def.max||
+      Math.abs((x-def.min)/def.step-Math.round((x-def.min)/def.step))>1e-6)return;params[def.key]=x;}
+    if(packet.key==='hyper'&&(params.K>params.N||params.n>params.N))return;
+    if(packet.key==='ud'&&params.a>params.b || packet.key==='uc'&&params.a>=params.b)return;
+  }
+  const event=packet.event;
+  if(!event||!['range','eq','lt','le','gt','ge'].includes(event.type)||!Number.isFinite(event.a)||!Number.isFinite(event.b)||
+     (event.type==='range'&&event.b<event.a))return;
+  const sample=Array.isArray(packet.sample)&&packet.sample.length<=10000&&packet.sample.every(Number.isFinite)?packet.sample.sort((a,b)=>a-b):[];
+  saved.set(packet.key,{params,event,view:packet.view==='cdf'?'cdf':'mass',strict:packet.strict===true,sample});
+  if(['all','c','d'].includes(packet.filter))guideFilter=packet.filter;
+  if(['100','1000','10000'].includes(packet.size))by('sampleSize').value=packet.size;
+  setModel(packet.key);
+}
+
 start();
 </script>
 </body>
